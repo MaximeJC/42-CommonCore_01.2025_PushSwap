@@ -6,7 +6,7 @@
 #    By: mgouraud <mgouraud@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2024/10/14 14:57:39 by mgouraud          #+#    #+#              #
-#    Updated: 2025/01/07 13:21:59 by mgouraud         ###   ########.fr        #
+#    Updated: 2025/01/07 14:43:32 by mgouraud         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -68,6 +68,7 @@ OBJS = $(addprefix $(OBJ_DIR), $(addsuffix .o, $(SRC_FILES)))
 #! Make
 
 $(NAME): $(OBJS)
+	@echo "Compiling Libft.a ..."
 	@$(AR) $(NAME) $(OBJS)
 	@echo "Libft.a compiled!"
 
@@ -85,7 +86,6 @@ $(NAME): $(OBJS)
 
 #? OBJS = $(SRC_FILES:.c=.o)
 $(OBJ_DIR)%.o : $(SRC_DIR)%.c | obj_mkdir
-	@echo "Compiling: $<"
 	@$(CC) $(CFLAGS) $(INCLUDES) -c $< -o $@
 
 all: $(NAME)
