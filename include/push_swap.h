@@ -6,13 +6,13 @@
 /*   By: mgouraud <mgouraud@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/07 12:30:51 by mgouraud          #+#    #+#             */
-/*   Updated: 2025/01/07 12:54:27 by mgouraud         ###   ########.fr       */
+/*   Updated: 2025/01/07 13:37:08 by mgouraud         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef PUSH_SWAP
-# define PUSH_SWAP
+#ifndef PUSH_SWAP_H
+# define PUSH_SWAP_H
 
-#include "../libft/libft.h"
+# include "../libft/libft.h"
 
 #endif
