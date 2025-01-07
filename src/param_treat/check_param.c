@@ -6,7 +6,7 @@
 /*   By: mgouraud <mgouraud@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/07 12:43:00 by mgouraud          #+#    #+#             */
-/*   Updated: 2025/01/07 14:31:45 by mgouraud         ###   ########.fr       */
+/*   Updated: 2025/01/07 15:58:02 by mgouraud         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,7 +26,7 @@ char	**argvtoargs(int argc, char *argv[])
 	}
 	while (i++ < argc)
 	{
-		args[i - 2] = ft_strdup(argv[i]);
+		args[i - 2] = ft_strdup(argv[i - 1]);
 		if (args[i - 2] == NULL)
 		{
 			while (i-- > 1)
@@ -36,6 +36,6 @@ char	**argvtoargs(int argc, char *argv[])
 			exit(EXIT_FAILURE);
 		}
 	}
-	args[i - 1] = NULL;
+	args[i - 2] = NULL;
 	return (args);
 }
