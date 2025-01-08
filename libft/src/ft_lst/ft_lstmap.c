@@ -6,7 +6,7 @@
 /*   By: mgouraud <mgouraud@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/10/22 17:20:09 by mgouraud          #+#    #+#             */
-/*   Updated: 2025/01/08 11:23:30 by mgouraud         ###   ########.fr       */
+/*   Updated: 2025/01/08 11:46:45 by mgouraud         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,21 +20,18 @@ t_list	*ft_lstmap(t_list *lst, int (*f)(int))
 	t_list	*start;
 	t_list	*el;
 	t_list	*new_el;
-	void	*content;
+	int		content;
 
 	el = NULL;
 	new_el = NULL;
 	start = NULL;
-	content = NULL;
+	content = 0;
 	while (lst != NULL)
 	{
 		content = f(lst->content);
-		if (content == NULL)
-			return (ft_newlst_clear(&start));
 		new_el = ft_lstnew(content);
 		if (new_el == NULL)
 		{
-			free(content);
 			return (ft_newlst_clear(&start));
 		}
 		ft_lstnxt(&start, new_el, &el, &lst);
