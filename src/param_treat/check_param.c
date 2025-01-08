@@ -6,13 +6,14 @@
 /*   By: mgouraud <mgouraud@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/07 12:43:00 by mgouraud          #+#    #+#             */
-/*   Updated: 2025/01/08 10:06:38 by mgouraud         ###   ########.fr       */
+/*   Updated: 2025/01/08 15:01:39 by mgouraud         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
 
-int	check_str(char	*str);
+static int	argstostack_sub(char **args, t_list **a, int i, t_list **el);
+static int	check_str(char	*str);
 
 char	**argvtoargs(int argc, char *argv[])
 {
@@ -42,66 +43,60 @@ char	**argvtoargs(int argc, char *argv[])
 	return (args);
 }
 
-void	argstostack(char **args, t_list *a)
+void	argstostack(char **args, t_list **a)
 {
 	int		i;
 	int		error;
-	long	nbr;
 	t_list	*el;
-	t_list	*new_el;
-	void	(*del)(void*) = lst_content_del;
 
 	i = 0;
 	error = 0;
-	nbr = 0;
 	el = NULL;
-	new_el = NULL;
 	while (args[i] != NULL && error == 0)
 	{
-		error = check_str(args[i]);
-		if (error == 0)
-			nbr = ft_atol(args[i]);
-		if (nbr < INT_MIN || nbr > INT_MAX)
-			error = 1;
-		if (i == 0 && error == 0)
-		{
-			a = ft_lstnew(data_init(nbr));
-			if (a == NULL)
-				error = 1;
-			el = a;
-		}
-		else if (error == 0)
-		{
-			new_el = ft_lstnew(data_init(nbr));
-			if (new_el == NULL)
-			{
-				error = 1;
-			}
-			else
-			{
-				el->next = new_el;
-				el = new_el;
-			}
-		}
-		free(args[i]);
-		i++;
+		error = argstostack_sub(args, a, i, &el);
+		free(args[i++]);
 	}
 	while (error == 1 && args[i] != NULL)
-	{
-		free(args[i]);
-		i++;
-	}
+		free(args[i++]);
 	free(args);
 	if (error == 1)
 	{
-		ft_lstclear(&a, del);
+		ft_lstclear(a);
 		ft_putendl_fd("Error", 2);
 		exit(EXIT_FAILURE);
 	}
-	//! Check doubles
 }
 
-int	check_str(char	*str)
+static int	argstostack_sub(char **args, t_list **a, int i, t_list **el)
+{
+	long	nbr;
+	t_list	*new_el;
+
+	nbr = 0;
+	new_el = NULL;
+	nbr = ft_atol(args[i]);
+	if (check_str(args[i]) == 1 || nbr < INT_MIN || nbr > INT_MAX)
+		return (1);
+	if (i == 0)
+	{
+		*a = ft_lstnew((int)nbr);
+		if (*a == NULL)
+			return (1);
+		*el = *a;
+	}
+	else
+	{
+		new_el = ft_lstnew((int)nbr);
+		if (new_el == NULL)
+			return (1);
+		(*el)->next = new_el;
+		*el = (*el)->next;
+	}
+	return (0);
+}
+
+static int	check_str(char	*str)
 {
 	int	i;
 
