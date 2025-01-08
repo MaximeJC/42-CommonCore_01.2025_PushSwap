@@ -6,13 +6,13 @@
 /*   By: mgouraud <mgouraud@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/10/22 11:52:08 by mgouraud          #+#    #+#             */
-/*   Updated: 2024/12/30 16:31:59 by mgouraud         ###   ########.fr       */
+/*   Updated: 2025/01/08 11:22:20 by mgouraud         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-t_list	*ft_lstnew(void *content)
+t_list	*ft_lstnew(int content)
 {
 	t_list	*element;
 

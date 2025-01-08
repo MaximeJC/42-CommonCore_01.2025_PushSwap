@@ -6,14 +6,13 @@
 /*   By: mgouraud <mgouraud@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/10/22 16:40:52 by mgouraud          #+#    #+#             */
-/*   Updated: 2024/12/30 16:31:41 by mgouraud         ###   ########.fr       */
+/*   Updated: 2025/01/08 11:20:19 by mgouraud         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-void	ft_lstdelone(t_list *lst, void (*del)(void *))
+void	ft_lstdelone(t_list *lst)
 {
-	del(lst->content);
 	free(lst);
 }
