@@ -6,7 +6,7 @@
 /*   By: mgouraud <mgouraud@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/07 12:43:00 by mgouraud          #+#    #+#             */
-/*   Updated: 2025/01/08 15:01:39 by mgouraud         ###   ########.fr       */
+/*   Updated: 2025/01/08 15:10:44 by mgouraud         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,6 +14,7 @@
 
 static int	argstostack_sub(char **args, t_list **a, int i, t_list **el);
 static int	check_str(char	*str);
+static int	check_double(t_list *a);
 
 char	**argvtoargs(int argc, char *argv[])
 {
@@ -60,6 +61,8 @@ void	argstostack(char **args, t_list **a)
 	while (error == 1 && args[i] != NULL)
 		free(args[i++]);
 	free(args);
+	if (error == 0)
+		error = check_double(*a);
 	if (error == 1)
 	{
 		ft_lstclear(a);
@@ -115,7 +118,23 @@ static int	check_str(char	*str)
 		return (1);
 }
 
-// int	check_double(t_list *a)
-// {
-// 	return (0);
-// }
+static int	check_double(t_list *a)
+{
+	t_list	*ref_el;
+	t_list	*el;
+
+	ref_el = a;
+	el = NULL;
+	while (ref_el->next != NULL)
+	{
+		el = ref_el->next;
+		while (el != NULL)
+		{
+			if (ref_el->content == el->content)
+				return (1);
+			el = el->next;
+		}
+		ref_el = ref_el-> next;
+	}
+	return (0);
+}
