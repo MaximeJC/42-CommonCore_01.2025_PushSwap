@@ -6,7 +6,7 @@
 #    By: mgouraud <mgouraud@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2024/12/30 17:27:03 by mgouraud          #+#    #+#              #
-#    Updated: 2025/01/08 10:08:24 by mgouraud         ###   ########.fr        #
+#    Updated: 2025/01/08 14:06:57 by mgouraud         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -24,7 +24,7 @@ CFLAGS	= -g -Wall -Wextra -Werror -I
 
 #! Sources
 
-MAIN 		=	$(addprefix $(SRC_DIR), main.c)
+MAIN 		=	main
 
 INSTR_DIR	=	instructions/
 INSTR		=	push reverse_rotate rotate swap
@@ -33,10 +33,11 @@ PRMTR_DIR	=	param_treat/
 PRMTR		=	check_param
 
 UTILS_DIR	=	utils/
-UTILS		=	lst_utils
+UTILS		=
 
 SRC_FILES	=	$(addprefix $(PRMTR_DIR),$(PRMTR)) \
-				$(addprefix $(UTILS_DIR),$(UTILS)) \
+				$(MAIN) \
+				# $(addprefix $(UTILS_DIR),$(UTILS)) \
 				# $(addprefix $(INSTR_DIR),$(INSTR)) \
 
 SRCS = $(addprefix $(SRC_DIR), $(addsuffix .c, $(SRC_FILES)))
@@ -50,7 +51,7 @@ $(NAME): $(OBJS)
 	@mv libft.a $(OBJ_DIR)$(AR_NAME)
 	@echo "Compiling Push_swap..."
 	@$(AR) $(OBJ_DIR)$(AR_NAME) $(OBJS)
-	@$(CC) $(CFLAGS) $(INCLUDE) $(MAIN) $(OBJ_DIR)$(AR_NAME) -o $(NAME)
+	@$(CC) $(CFLAGS) $(INCLUDE) $(OBJ_DIR)$(AR_NAME) -o $(NAME)
 	@echo "Push_swap compiled!"
 
 $(OBJ_DIR)%.o : $(SRC_DIR)%.c | obj_mkdir
@@ -78,6 +79,7 @@ obj_mkdir:
 	@mkdir -p $(OBJ_DIR)
 	@mkdir -p $(OBJ_DIR)$(INSTR_DIR)
 	@mkdir -p $(OBJ_DIR)$(PRMTR_DIR)
+	@mkdir -p $(OBJ_DIR)$(UTILS_DIR)
 
 re: fclean all
 	@echo "Cleaned and rebuild Push_swap from zero!"
