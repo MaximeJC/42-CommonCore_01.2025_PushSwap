@@ -6,7 +6,7 @@
 #    By: mgouraud <mgouraud@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2024/12/30 17:27:03 by mgouraud          #+#    #+#              #
-#    Updated: 2025/01/08 14:06:57 by mgouraud         ###   ########.fr        #
+#    Updated: 2025/01/08 16:55:47 by mgouraud         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -36,9 +36,9 @@ UTILS_DIR	=	utils/
 UTILS		=
 
 SRC_FILES	=	$(addprefix $(PRMTR_DIR),$(PRMTR)) \
+				$(addprefix $(INSTR_DIR),$(INSTR)) \
 				$(MAIN) \
 				# $(addprefix $(UTILS_DIR),$(UTILS)) \
-				# $(addprefix $(INSTR_DIR),$(INSTR)) \
 
 SRCS = $(addprefix $(SRC_DIR), $(addsuffix .c, $(SRC_FILES)))
 OBJS = $(addprefix $(OBJ_DIR), $(addsuffix .o, $(SRC_FILES)))

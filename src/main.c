@@ -6,7 +6,7 @@
 /*   By: mgouraud <mgouraud@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/12/30 17:29:48 by mgouraud          #+#    #+#             */
-/*   Updated: 2025/01/08 14:47:46 by mgouraud         ###   ########.fr       */
+/*   Updated: 2025/01/08 17:21:37 by mgouraud         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,7 +17,7 @@ int	main(int argc, char *argv[])
 	char	**args;
 	t_list	*a;
 	t_list	*b;
-	t_list	*el = NULL;
+	t_list	*el = NULL;	//! To delete
 
 	args = NULL;
 	a = NULL;
@@ -30,6 +30,8 @@ int	main(int argc, char *argv[])
 		args = argvtoargs(argc, argv);
 	argstostack(args, &a);
 
+	//! To delete
+	ft_printf("[A]: ");
 	el = a;
 	if (el != NULL)
 	{
@@ -38,11 +40,59 @@ int	main(int argc, char *argv[])
 			ft_printf("%d ", el->content);
 			el = el->next;
 		}
-		ft_printf("%d", el->content);
+		ft_printf("%d\n", el->content);
 		el = NULL;
 	}
+	else
+		ft_printf("NULL\n");
+	ft_printf("[B]: ");
+	el = b;
+	if (el != NULL)
+	{
+		while (el->next != NULL)
+		{
+			ft_printf("%d ", el->content);
+			el = el->next;
+		}
+		ft_printf("%d\n", el->content);
+		el = NULL;
+	}
+	else
+		ft_printf("NULL\n");
+	//! To delete
 
-	//! Check doubles
+	//TODO Tri des elements
+
+	//! To delete
+	ft_printf("[A]: ");
+	el = a;
+	if (el != NULL)
+	{
+		while (el->next != NULL)
+		{
+			ft_printf("%d ", el->content);
+			el = el->next;
+		}
+		ft_printf("%d\n", el->content);
+		el = NULL;
+	}
+	else
+		ft_printf("NULL\n");
+	ft_printf("[B]: ");
+	el = b;
+	if (el != NULL)
+	{
+		while (el->next != NULL)
+		{
+			ft_printf("%d ", el->content);
+			el = el->next;
+		}
+		ft_printf("%d\n", el->content);
+		el = NULL;
+	}
+	else
+		ft_printf("NULL\n");
+	//! To delete
 
 	ft_lstclear(&a);
 	ft_lstclear(&b);
