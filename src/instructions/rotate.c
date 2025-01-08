@@ -6,7 +6,7 @@
 /*   By: mgouraud <mgouraud@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/12/30 17:44:48 by mgouraud          #+#    #+#             */
-/*   Updated: 2025/01/07 13:44:28 by mgouraud         ###   ########.fr       */
+/*   Updated: 2025/01/08 15:24:09 by mgouraud         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,18 +19,21 @@ void	rotate(t_list *el)
 
 void	ra(t_list *a)
 {
+	ft_printf("ra\n");
 	rotate(a);
 	return ;
 }
 
 void	rb(t_list *b)
 {
+	ft_printf("rb\n");
 	rotate(b);
 	return ;
 }
 
 void	rr(t_list *a, t_list *b)
 {
+	ft_printf("rr\n");
 	ra(a);
 	rb(b);
 	return ;
