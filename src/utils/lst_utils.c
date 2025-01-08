@@ -1,38 +1,35 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   main.c                                             :+:      :+:    :+:   */
+/*   lst_utils.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: mgouraud <mgouraud@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/12/30 17:29:48 by mgouraud          #+#    #+#             */
-/*   Updated: 2025/01/08 10:06:17 by mgouraud         ###   ########.fr       */
+/*   Created: 2025/01/08 10:03:07 by mgouraud          #+#    #+#             */
+/*   Updated: 2025/01/08 10:06:44 by mgouraud         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
 
-int	main(int argc, char *argv[])
+void	lst_content_del(void *content)
 {
-	char	**args;
-	t_list	*a;
-	t_list	*b;
-
-	args = NULL;
-	a = NULL;
-	b = NULL;
-	if (argc == 1)
-		return (0);
-	else if (argc == 2)
-		args = ft_split(argv[1], ' ');
-	else
-		args = argvtoargs(argc, argv);
-	argstostack(args, a);
-
-
-	ft_clearstacks(a);
-	ft_clearstacks(b);
-	return (0);
+	free(content);
 }
 
+void	ft_clearstack(t_list *stack)
+{
+	void	(*del)(void*) = lst_content_del;
 
+	ft_lstclear(&stack, del);
+}
+
+int	*data_init(int nb)
+{
+	int	nbr;
+	int	*p_nbr;
+
+	nbr = nb;
+	p_nbr = &nbr;
+	return (p_nbr);
+}

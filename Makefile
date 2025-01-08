@@ -6,7 +6,7 @@
 #    By: mgouraud <mgouraud@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2024/12/30 17:27:03 by mgouraud          #+#    #+#              #
-#    Updated: 2025/01/07 15:07:42 by mgouraud         ###   ########.fr        #
+#    Updated: 2025/01/08 10:08:24 by mgouraud         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -32,7 +32,11 @@ INSTR		=	push reverse_rotate rotate swap
 PRMTR_DIR	=	param_treat/
 PRMTR		=	check_param
 
+UTILS_DIR	=	utils/
+UTILS		=	lst_utils
+
 SRC_FILES	=	$(addprefix $(PRMTR_DIR),$(PRMTR)) \
+				$(addprefix $(UTILS_DIR),$(UTILS)) \
 				# $(addprefix $(INSTR_DIR),$(INSTR)) \
 
 SRCS = $(addprefix $(SRC_DIR), $(addsuffix .c, $(SRC_FILES)))

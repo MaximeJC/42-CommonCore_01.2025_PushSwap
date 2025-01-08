@@ -6,14 +6,13 @@
 /*   By: mgouraud <mgouraud@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/07 12:43:00 by mgouraud          #+#    #+#             */
-/*   Updated: 2025/01/07 17:12:28 by mgouraud         ###   ########.fr       */
+/*   Updated: 2025/01/08 10:06:38 by mgouraud         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
 
 int	check_str(char	*str);
-static int	*data_init(int nb);
 
 char	**argvtoargs(int argc, char *argv[])
 {
@@ -100,16 +99,6 @@ void	argstostack(char **args, t_list *a)
 		exit(EXIT_FAILURE);
 	}
 	//! Check doubles
-}
-
-static int	*data_init(int nb)
-{
-	int	nbr;
-	int	*p_nbr;
-
-	nbr = nb;
-	p_nbr = &nbr;
-	return (p_nbr);
 }
 
 int	check_str(char	*str)
