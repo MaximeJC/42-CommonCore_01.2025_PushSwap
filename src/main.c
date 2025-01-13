@@ -6,7 +6,7 @@
 /*   By: mgouraud <mgouraud@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/12/30 17:29:48 by mgouraud          #+#    #+#             */
-/*   Updated: 2025/01/13 15:35:00 by mgouraud         ###   ########.fr       */
+/*   Updated: 2025/01/13 15:45:21 by mgouraud         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -45,29 +45,28 @@ int	main(int argc, char *argv[])
 	}
 	else
 		ft_printf("NULL\n");
-	ft_printf("[B]: ");
-	el = b;
-	if (el != NULL)
-	{
-		while (el->next != NULL)
-		{
-			ft_printf("%d ", el->content);
-			el = el->next;
-		}
-		ft_printf("%d\n", el->content);
-		el = NULL;
-	}
-	else
-		ft_printf("NULL\n");
+	// ft_printf("[B]: ");
+	// el = b;
+	// if (el != NULL)
+	// {
+	// 	while (el->next != NULL)
+	// 	{
+	// 		ft_printf("%d ", el->content);
+	// 		el = el->next;
+	// 	}
+	// 	ft_printf("%d\n", el->content);
+	// 	el = NULL;
+	// }
+	// else
+	// 	ft_printf("NULL\n");
 	//! To delete
 
-	//TODO Tri des elements
 	if (ft_lstsize(a) == 2)
 		sort_two(&a);
 	else if (ft_lstsize(a) == 3)
 		sort_three(&a);
 	else if (is_sorted(a) == 0)
-		sort(a, b);
+		sort(&a, &b);
 
 	//! To delete
 	ft_printf("[A]: ");
@@ -84,20 +83,20 @@ int	main(int argc, char *argv[])
 	}
 	else
 		ft_printf("NULL\n");
-	ft_printf("[B]: ");
-	el = b;
-	if (el != NULL)
-	{
-		while (el->next != NULL)
-		{
-			ft_printf("%d ", el->content);
-			el = el->next;
-		}
-		ft_printf("%d\n", el->content);
-		el = NULL;
-	}
-	else
-		ft_printf("NULL\n");
+	// ft_printf("[B]: ");
+	// el = b;
+	// if (el != NULL)
+	// {
+	// 	while (el->next != NULL)
+	// 	{
+	// 		ft_printf("%d ", el->content);
+	// 		el = el->next;
+	// 	}
+	// 	ft_printf("%d\n", el->content);
+	// 	el = NULL;
+	// }
+	// else
+	// 	ft_printf("NULL\n");
 	//! To delete
 
 	ft_lstclear(&a);

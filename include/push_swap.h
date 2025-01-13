@@ -6,7 +6,7 @@
 /*   By: mgouraud <mgouraud@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/07 12:30:51 by mgouraud          #+#    #+#             */
-/*   Updated: 2025/01/13 15:07:11 by mgouraud         ###   ########.fr       */
+/*   Updated: 2025/01/13 15:40:59 by mgouraud         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -33,6 +33,7 @@ void	rrb(t_list **b);
 void	rrr(t_list **a, t_list **b);
 
 // Sorting
+void	sort(t_list **a, t_list **b);
 
 // Utils
 int		is_sorted(t_list *lst);
