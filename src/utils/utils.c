@@ -6,7 +6,7 @@
 /*   By: mgouraud <mgouraud@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/13 13:44:21 by mgouraud          #+#    #+#             */
-/*   Updated: 2025/01/13 13:55:35 by mgouraud         ###   ########.fr       */
+/*   Updated: 2025/01/13 15:10:11 by mgouraud         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,7 +19,6 @@ int	is_sorted(t_list *lst)
 
 	el = lst;
 	highest = el->content;
-
 	while (el->next != NULL)
 	{
 		el = el->next;
@@ -29,4 +28,77 @@ int	is_sorted(t_list *lst)
 			return (0);
 	}
 	return (1);
+}
+
+int	is_rsorted(t_list *lst)
+{
+	int		lowest;
+	t_list	*el;
+
+	el = lst;
+	lowest = el->content;
+	while (el->next != NULL)
+	{
+		el = el->next;
+		if (el->content < lowest)
+			lowest = el->content;
+		else
+			return (0);
+	}
+	return (1);
+}
+
+void	sort_two(t_list **a)
+{
+	if (is_sorted(*a))
+		return ;
+	else
+		sa(a);
+	return ;
+}
+
+void	sort_three(t_list **a)
+{
+	if (is_sorted(*a))
+		return ;
+	else if (is_rsorted(*a) || ((*a)->content < (*a)->next->content
+			&& (*a)->content < (*a)->next->next->content
+			&& (*a)->next->content > (*a)->next->next->content))
+		sa(a);
+	if ((*a)->content < (*a)->next->content
+		&& (*a)->content > (*a)->next->next->content
+		&& (*a)->next->content > (*a)->next->next->content)
+		rra(a);
+	else if ((*a)->content > (*a)->next->content
+		&& (*a)->content < (*a)->next->next->content
+		&& (*a)->next->content < (*a)->next->next->content)
+		sa(a);
+	else if ((*a)->content > (*a)->next->content
+		&& (*a)->content > (*a)->next->next->content
+		&& (*a)->next->content < (*a)->next->next->content)
+		ra(a);
+	return ;
+}
+
+void	rsort_three(t_list **b)
+{
+	if (is_rsorted(*b))
+		return ;
+	else if (is_sorted(*b) || ((*b)->content > (*b)->next->content
+			&& (*b)->content > (*b)->next->next->content
+			&& (*b)->next->content < (*b)->next->next->content))
+		sb(b);
+	if ((*b)->content < (*b)->next->content
+		&& (*b)->content > (*b)->next->next->content
+		&& (*b)->next->content > (*b)->next->next->content)
+		sb(b);
+	else if ((*b)->content > (*b)->next->content
+		&& (*b)->content < (*b)->next->next->content
+		&& (*b)->next->content < (*b)->next->next->content)
+		rrb(b);
+	else if ((*b)->content < (*b)->next->content
+		&& (*b)->content < (*b)->next->next->content
+		&& (*b)->next->content > (*b)->next->next->content)
+		rb(b);
+	return ;
 }
