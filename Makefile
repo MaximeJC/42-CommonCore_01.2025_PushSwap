@@ -6,7 +6,7 @@
 #    By: mgouraud <mgouraud@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2024/12/30 17:27:03 by mgouraud          #+#    #+#              #
-#    Updated: 2025/01/13 13:55:07 by mgouraud         ###   ########.fr        #
+#    Updated: 2025/01/13 15:33:07 by mgouraud         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -33,16 +33,16 @@ PRMTR_DIR	=	param_treat/
 PRMTR		=	check_param
 
 SORT_DIR	=	sorting/
-SORT		=
+SORT		=	sort
 
 UTILS_DIR	=	utils/
 UTILS		=	utils
 
-SRC_FILES	=	$(addprefix $(PRMTR_DIR),$(PRMTR)) \
-				$(addprefix $(INSTR_DIR),$(INSTR)) \
+SRC_FILES	=	$(addprefix $(INSTR_DIR),$(INSTR)) \
+				$(addprefix $(PRMTR_DIR),$(PRMTR)) \
+				$(addprefix $(SORT_DIR),$(SORT)) \
 				$(addprefix $(UTILS_DIR),$(UTILS)) \
 				$(MAIN) \
-				# $(addprefix $(SORT_DIR),$(SORT))
 
 SRCS = $(addprefix $(SRC_DIR), $(addsuffix .c, $(SRC_FILES)))
 OBJS = $(addprefix $(OBJ_DIR), $(addsuffix .o, $(SRC_FILES)))
