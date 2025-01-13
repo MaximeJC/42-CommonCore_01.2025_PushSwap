@@ -6,7 +6,7 @@
 /*   By: mgouraud <mgouraud@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/07 12:30:51 by mgouraud          #+#    #+#             */
-/*   Updated: 2025/01/13 15:40:59 by mgouraud         ###   ########.fr       */
+/*   Updated: 2025/01/13 17:35:16 by mgouraud         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,6 +14,14 @@
 # define PUSH_SWAP_H
 
 # include "../libft/libft.h"
+
+typedef struct s_element
+{
+	int	content;
+	int	cost;
+	int	a_rev;
+	int	b_rev;
+}	t_element;
 
 // Param_treat
 char	**argvtoargs(int argc, char *argv[]);

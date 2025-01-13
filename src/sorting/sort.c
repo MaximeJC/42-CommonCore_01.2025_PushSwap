@@ -6,7 +6,7 @@
 /*   By: mgouraud <mgouraud@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/13 15:24:49 by mgouraud          #+#    #+#             */
-/*   Updated: 2025/01/13 17:39:49 by mgouraud         ###   ########.fr       */
+/*   Updated: 2025/01/13 17:41:04 by mgouraud         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -43,4 +43,9 @@ void	sort(t_list **a, t_list **b)
 	}
 	while ((*a)->content > ft_lstlast(*a)->content)
 		rra(a);
+}
+
+t_element	get_cheaper(t_list *a, t_list *b)
+{
+	t_element	el;
 }
