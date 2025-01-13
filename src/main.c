@@ -6,7 +6,7 @@
 /*   By: mgouraud <mgouraud@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/12/30 17:29:48 by mgouraud          #+#    #+#             */
-/*   Updated: 2025/01/08 17:21:37 by mgouraud         ###   ########.fr       */
+/*   Updated: 2025/01/13 15:35:00 by mgouraud         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -62,6 +62,12 @@ int	main(int argc, char *argv[])
 	//! To delete
 
 	//TODO Tri des elements
+	if (ft_lstsize(a) == 2)
+		sort_two(&a);
+	else if (ft_lstsize(a) == 3)
+		sort_three(&a);
+	else if (is_sorted(a) == 0)
+		sort(a, b);
 
 	//! To delete
 	ft_printf("[A]: ");
