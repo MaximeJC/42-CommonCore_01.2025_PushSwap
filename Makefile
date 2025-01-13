@@ -6,7 +6,7 @@
 #    By: mgouraud <mgouraud@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2024/12/30 17:27:03 by mgouraud          #+#    #+#              #
-#    Updated: 2025/01/08 16:55:47 by mgouraud         ###   ########.fr        #
+#    Updated: 2025/01/13 13:55:07 by mgouraud         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -32,13 +32,17 @@ INSTR		=	push reverse_rotate rotate swap
 PRMTR_DIR	=	param_treat/
 PRMTR		=	check_param
 
+SORT_DIR	=	sorting/
+SORT		=
+
 UTILS_DIR	=	utils/
-UTILS		=
+UTILS		=	utils
 
 SRC_FILES	=	$(addprefix $(PRMTR_DIR),$(PRMTR)) \
 				$(addprefix $(INSTR_DIR),$(INSTR)) \
+				$(addprefix $(UTILS_DIR),$(UTILS)) \
 				$(MAIN) \
-				# $(addprefix $(UTILS_DIR),$(UTILS)) \
+				# $(addprefix $(SORT_DIR),$(SORT))
 
 SRCS = $(addprefix $(SRC_DIR), $(addsuffix .c, $(SRC_FILES)))
 OBJS = $(addprefix $(OBJ_DIR), $(addsuffix .o, $(SRC_FILES)))
@@ -79,6 +83,7 @@ obj_mkdir:
 	@mkdir -p $(OBJ_DIR)
 	@mkdir -p $(OBJ_DIR)$(INSTR_DIR)
 	@mkdir -p $(OBJ_DIR)$(PRMTR_DIR)
+	@mkdir -p $(OBJ_DIR)$(SORT_DIR)
 	@mkdir -p $(OBJ_DIR)$(UTILS_DIR)
 
 re: fclean all
