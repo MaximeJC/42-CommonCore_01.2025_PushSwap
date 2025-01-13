@@ -6,7 +6,7 @@
 /*   By: mgouraud <mgouraud@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/13 15:24:49 by mgouraud          #+#    #+#             */
-/*   Updated: 2025/01/13 15:59:45 by mgouraud         ###   ########.fr       */
+/*   Updated: 2025/01/13 17:39:49 by mgouraud         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,6 +14,9 @@
 
 void	sort(t_list **a, t_list **b)
 {
+	int	i;
+
+	i = 3;
 	pb(a, b);
 	if (ft_lstsize(*a) != 3)
 	{
@@ -28,10 +31,15 @@ void	sort(t_list **a, t_list **b)
 	sort_three(a);
 	while (ft_lstsize(*b) != 0)
 	{
-		if ((*b)->content > ft_lstlast(*a)->content)
+		// Can be optimized (+3 cps): check if all values in B (if Max B)
+		// are smaller than (*a)->content qui est le plus petit de A
+		if ((*b)->content > ft_lstlast(*a)->content || i == 0)
 			pa(a, b);
 		else
+		{
 			rra(a);
+			i--;
+		}
 	}
 	while ((*a)->content > ft_lstlast(*a)->content)
 		rra(a);
