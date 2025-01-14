@@ -6,7 +6,7 @@
 /*   By: mgouraud <mgouraud@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/13 15:24:49 by mgouraud          #+#    #+#             */
-/*   Updated: 2025/01/13 17:41:04 by mgouraud         ###   ########.fr       */
+/*   Updated: 2025/01/14 11:50:35 by mgouraud         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,7 +14,8 @@
 
 void	sort(t_list **a, t_list **b)
 {
-	int	i;
+	int			i;
+	t_element	todo;
 
 	i = 3;
 	pb(a, b);
@@ -26,6 +27,7 @@ void	sort(t_list **a, t_list **b)
 	}
 	while (ft_lstsize(*a) != 3)
 	{
+		get_cheaper(*a, *b);
 		//TODO : Calc cost + apply it
 	}
 	sort_three(a);
@@ -48,4 +50,5 @@ void	sort(t_list **a, t_list **b)
 t_element	get_cheaper(t_list *a, t_list *b)
 {
 	t_element	el;
+	
 }

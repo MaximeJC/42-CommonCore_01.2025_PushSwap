@@ -6,7 +6,7 @@
 /*   By: mgouraud <mgouraud@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/07 12:30:51 by mgouraud          #+#    #+#             */
-/*   Updated: 2025/01/13 17:35:16 by mgouraud         ###   ########.fr       */
+/*   Updated: 2025/01/14 11:45:49 by mgouraud         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,8 +19,10 @@ typedef struct s_element
 {
 	int	content;
 	int	cost;
-	int	a_rev;
-	int	b_rev;
+	int	rot_a;
+	int	rot_b;
+	int	rrot_a;
+	int	rrot_b;
 }	t_element;
 
 // Param_treat
