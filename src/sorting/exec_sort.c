@@ -6,7 +6,7 @@
 /*   By: mgouraud <mgouraud@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/14 14:17:23 by mgouraud          #+#    #+#             */
-/*   Updated: 2025/01/14 15:24:14 by mgouraud         ###   ########.fr       */
+/*   Updated: 2025/01/14 15:54:28 by mgouraud         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -30,9 +30,11 @@ void	exec_sort(t_list **a, t_list **b, t_element element)
 	cost_rrr = ft_max(element.rrot_a, element.rrot_b);
 	if (cost_rr <= cost_rrr && cost_rr <= cost_rarrb && cost_rr <= cost_rrarb)
 		exec_rr(a, b, element);
-	else if (cost_rrr <= cost_rr && cost_rrr <= cost_rarrb && cost_rrr <= cost_rrarb)
+	else if (cost_rrr <= cost_rr && cost_rrr <= cost_rarrb
+		&& cost_rrr <= cost_rrarb)
 		exec_rrr(a, b, element);
-	else if (cost_rarrb <= cost_rr && cost_rarrb <= cost_rrr && cost_rrr <= cost_rrarb)
+	else if (cost_rarrb <= cost_rr && cost_rarrb <= cost_rrr
+		&& cost_rrr <= cost_rrarb)
 		exec_rarrb(a, b, element);
 	else
 		exec_rrarb(a, b, element);

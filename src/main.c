@@ -6,7 +6,7 @@
 /*   By: mgouraud <mgouraud@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/12/30 17:29:48 by mgouraud          #+#    #+#             */
-/*   Updated: 2025/01/13 17:03:10 by mgouraud         ###   ########.fr       */
+/*   Updated: 2025/01/14 15:49:28 by mgouraud         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,7 +17,6 @@ int	main(int argc, char *argv[])
 	char	**args;
 	t_list	*a;
 	t_list	*b;
-	// t_list	*el = NULL;	//! To delete
 
 	args = NULL;
 	a = NULL;
@@ -29,76 +28,12 @@ int	main(int argc, char *argv[])
 	else
 		args = argvtoargs(argc, argv);
 	argstostack(args, &a);
-
-	//! To delete
-	// ft_printf("[A]: ");
-	// el = a;
-	// if (el != NULL)
-	// {
-	// 	while (el->next != NULL)
-	// 	{
-	// 		ft_printf("%d ", el->content);
-	// 		el = el->next;
-	// 	}
-	// 	ft_printf("%d\n", el->content);
-	// 	el = NULL;
-	// }
-	// else
-	// 	ft_printf("NULL\n");
-	// ft_printf("[B]: ");
-	// el = b;
-	// if (el != NULL)
-	// {
-	// 	while (el->next != NULL)
-	// 	{
-	// 		ft_printf("%d ", el->content);
-	// 		el = el->next;
-	// 	}
-	// 	ft_printf("%d\n", el->content);
-	// 	el = NULL;
-	// }
-	// else
-	// 	ft_printf("NULL\n");
-	//! To delete
-
 	if (ft_lstsize(a) == 2)
 		sort_two(&a);
 	else if (ft_lstsize(a) == 3)
 		sort_three(&a);
 	else if (is_sorted(a) == 0)
 		sort(&a, &b);
-
-	//! To delete
-	// ft_printf("[A]: ");
-	// el = a;
-	// if (el != NULL)
-	// {
-	// 	while (el->next != NULL)
-	// 	{
-	// 		ft_printf("%d ", el->content);
-	// 		el = el->next;
-	// 	}
-	// 	ft_printf("%d\n", el->content);
-	// 	el = NULL;
-	// }
-	// else
-	// 	ft_printf("NULL\n");
-	// ft_printf("[B]: ");
-	// el = b;
-	// if (el != NULL)
-	// {
-	// 	while (el->next != NULL)
-	// 	{
-	// 		ft_printf("%d ", el->content);
-	// 		el = el->next;
-	// 	}
-	// 	ft_printf("%d\n", el->content);
-	// 	el = NULL;
-	// }
-	// else
-	// 	ft_printf("NULL\n");
-	//! To delete
-
 	ft_lstclear(&a);
 	ft_lstclear(&b);
 	return (0);

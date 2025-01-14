@@ -6,7 +6,7 @@
 /*   By: mgouraud <mgouraud@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/14 11:50:59 by mgouraud          #+#    #+#             */
-/*   Updated: 2025/01/14 15:22:22 by mgouraud         ###   ########.fr       */
+/*   Updated: 2025/01/14 15:57:53 by mgouraud         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -33,12 +33,10 @@ int	getnbrot_a(t_list *a, int content)
 int	getnbrot_b(t_list *b, int content, int cost, int b_max)
 {
 	int		b_content;
-	int		b_min;
 	t_list	*el;
 
 	el = getlst_max(b, &b_max);
-	b_min = getlst_min(b);
-	if (content > b_max || content < b_min)
+	if (content > b_max || content < getlst_min(b))
 		b_content = b_max;
 	else
 	{
@@ -51,7 +49,6 @@ int	getnbrot_b(t_list *b, int content, int cost, int b_max)
 		}
 		b_content = el->content;
 	}
-	// ft_printf("<%d: %d>  ", content, b_content);
 	el = b;
 	while (el->content != b_content)
 	{
@@ -72,12 +69,13 @@ int	getcost(t_element element)
 	cost_rrarb = element.rrot_a + element.rot_b;
 	cost_rr = ft_max(element.rot_a, element.rot_b);
 	cost_rrr = ft_max(element.rrot_a, element.rrot_b);
-	// ft_printf("[%d| rr: %d (%d/%d)- rrr: %d (%d/%d)- rarrb: %d (%d/%d)- rrarb: %d (%d/%d)]\n", element.content, cost_rr, element.rot_a, element.rot_b, cost_rrr, element.rrot_a, element.rrot_b, cost_rarrb, element.rot_a, element.rrot_b, cost_rrarb, element.rrot_a, element.rot_b);
 	if (cost_rr <= cost_rrr && cost_rr <= cost_rarrb && cost_rr <= cost_rrarb)
 		return (cost_rr);
-	else if (cost_rrr <= cost_rr && cost_rrr <= cost_rarrb && cost_rrr <= cost_rrarb)
+	else if (cost_rrr <= cost_rr && cost_rrr <= cost_rarrb
+		&& cost_rrr <= cost_rrarb)
 		return (cost_rrr);
-	else if (cost_rarrb <= cost_rr && cost_rarrb <= cost_rrr && cost_rrr <= cost_rrarb)
+	else if (cost_rarrb <= cost_rr && cost_rarrb <= cost_rrr
+		&& cost_rrr <= cost_rrarb)
 		return (cost_rarrb);
 	else
 		return (cost_rrarb);
