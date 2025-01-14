@@ -6,7 +6,7 @@
 #    By: mgouraud <mgouraud@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2024/12/30 17:27:03 by mgouraud          #+#    #+#              #
-#    Updated: 2025/01/13 15:33:07 by mgouraud         ###   ########.fr        #
+#    Updated: 2025/01/14 11:51:18 by mgouraud         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -33,7 +33,7 @@ PRMTR_DIR	=	param_treat/
 PRMTR		=	check_param
 
 SORT_DIR	=	sorting/
-SORT		=	sort
+SORT		=	cost sort
 
 UTILS_DIR	=	utils/
 UTILS		=	utils
