@@ -6,7 +6,7 @@
 /*   By: mgouraud <mgouraud@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/14 14:17:23 by mgouraud          #+#    #+#             */
-/*   Updated: 2025/01/14 14:28:06 by mgouraud         ###   ########.fr       */
+/*   Updated: 2025/01/14 15:24:14 by mgouraud         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -48,12 +48,18 @@ static void	exec_rr(t_list **a, t_list **b, t_element element)
 		element.rot_b--;
 	}
 	while (element.rot_a > 0)
+	{
 		ra(a);
+		element.rot_a--;
+	}
 	while (element.rot_b > 0)
+	{
 		rb(b);
+		element.rot_b--;
+	}
 }
 
-static void	exec_rr(t_list **a, t_list **b, t_element element)
+static void	exec_rrr(t_list **a, t_list **b, t_element element)
 {
 	while (element.rrot_a > 0 && element.rrot_b > 0)
 	{
@@ -62,23 +68,41 @@ static void	exec_rr(t_list **a, t_list **b, t_element element)
 		element.rrot_b--;
 	}
 	while (element.rrot_a > 0)
+	{
 		rra(a);
+		element.rrot_a--;
+	}
 	while (element.rrot_b > 0)
+	{
 		rrb(b);
+		element.rrot_b--;
+	}
 }
 
 static void	exec_rarrb(t_list **a, t_list **b, t_element element)
 {
 	while (element.rot_a > 0)
+	{
 		ra(a);
+		element.rot_a--;
+	}
 	while (element.rrot_b > 0)
+	{
 		rrb(b);
+		element.rrot_b--;
+	}
 }
 
 static void	exec_rrarb(t_list **a, t_list **b, t_element element)
 {
 	while (element.rrot_a > 0)
+	{
 		rra(a);
+		element.rrot_a--;
+	}
 	while (element.rot_b > 0)
+	{
 		rb(b);
+		element.rot_b--;
+	}
 }

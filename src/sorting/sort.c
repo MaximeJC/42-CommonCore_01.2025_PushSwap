@@ -6,14 +6,17 @@
 /*   By: mgouraud <mgouraud@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/13 15:24:49 by mgouraud          #+#    #+#             */
-/*   Updated: 2025/01/14 14:28:37 by mgouraud         ###   ########.fr       */
+/*   Updated: 2025/01/14 15:47:23 by mgouraud         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
 
+static t_element	get_cheaper(t_list *a, t_list *b);
+
 void	sort(t_list **a, t_list **b)
 {
+	t_element	el;
 	int			i;
 
 	i = 3;
@@ -26,13 +29,14 @@ void	sort(t_list **a, t_list **b)
 	}
 	while (ft_lstsize(*a) != 3)
 	{
-		exec_sort(a, b, get_cheaper(*a, *b));
+		el = get_cheaper(*a, *b);
+		exec_sort(a, b, el);
 	}
 	sort_three(a);
+	while ((*b)->content < ft_lstlast(*b)->content)
+		rrb(b);
 	while (ft_lstsize(*b) != 0)
 	{
-		// Can be optimized (+3 cps): check if all values in B (if Max B)
-		// are smaller than (*a)->content qui est le plus petit de A
 		if ((*b)->content > ft_lstlast(*a)->content || i == 0)
 			pa(a, b);
 		else
@@ -45,7 +49,7 @@ void	sort(t_list **a, t_list **b)
 		rra(a);
 }
 
-t_element	get_cheaper(t_list *a, t_list *b)
+static t_element	get_cheaper(t_list *a, t_list *b)
 {
 	t_element	cheap_el;
 	t_element	test_el;
