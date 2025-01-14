@@ -1,25 +1,20 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_pow.c                                           :+:      :+:    :+:   */
+/*   ft_max.c                                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: mgouraud <mgouraud@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/10/31 17:45:57 by mgouraud          #+#    #+#             */
-/*   Updated: 2025/01/14 13:59:52 by mgouraud         ###   ########.fr       */
+/*   Created: 2025/01/14 13:54:21 by mgouraud          #+#    #+#             */
+/*   Updated: 2025/01/14 13:55:06 by mgouraud         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-int	ft_pow(int nb, int power)
+int	ft_max(int a, int b)
 {
-	if (power == 0)
-		return (1);
-	if (power == 1)
-		return (nb);
-	if (power < 0)
-		return (0);
-	else
-		return (ft_pow(nb, power - 1) * nb);
+	if (a >= b)
+		return (a);
+	return (b);
 }
