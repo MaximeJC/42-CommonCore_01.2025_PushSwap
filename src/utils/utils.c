@@ -6,7 +6,7 @@
 /*   By: mgouraud <mgouraud@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/13 13:44:21 by mgouraud          #+#    #+#             */
-/*   Updated: 2025/01/13 15:10:11 by mgouraud         ###   ########.fr       */
+/*   Updated: 2025/01/14 17:03:00 by mgouraud         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -77,28 +77,5 @@ void	sort_three(t_list **a)
 		&& (*a)->content > (*a)->next->next->content
 		&& (*a)->next->content < (*a)->next->next->content)
 		ra(a);
-	return ;
-}
-
-void	rsort_three(t_list **b)
-{
-	if (is_rsorted(*b))
-		return ;
-	else if (is_sorted(*b) || ((*b)->content > (*b)->next->content
-			&& (*b)->content > (*b)->next->next->content
-			&& (*b)->next->content < (*b)->next->next->content))
-		sb(b);
-	if ((*b)->content < (*b)->next->content
-		&& (*b)->content > (*b)->next->next->content
-		&& (*b)->next->content > (*b)->next->next->content)
-		sb(b);
-	else if ((*b)->content > (*b)->next->content
-		&& (*b)->content < (*b)->next->next->content
-		&& (*b)->next->content < (*b)->next->next->content)
-		rrb(b);
-	else if ((*b)->content < (*b)->next->content
-		&& (*b)->content < (*b)->next->next->content
-		&& (*b)->next->content > (*b)->next->next->content)
-		rb(b);
 	return ;
 }
