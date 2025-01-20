@@ -6,7 +6,7 @@
 /*   By: mgouraud <mgouraud@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/12/30 17:44:40 by mgouraud          #+#    #+#             */
-/*   Updated: 2025/01/08 17:18:35 by mgouraud         ###   ########.fr       */
+/*   Updated: 2025/01/20 14:59:36 by mgouraud         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,23 +26,26 @@ void	reverse_rotate(t_list **lst)
 	return ;
 }
 
-void	rra(t_list **a)
+void	rra(t_list **a, int print)
 {
-	ft_printf("rra\n");
+	if (print)
+		ft_printf("rra\n");
 	reverse_rotate(a);
 	return ;
 }
 
-void	rrb(t_list **b)
+void	rrb(t_list **b, int print)
 {
-	ft_printf("rrb\n");
+	if (print)
+		ft_printf("rrb\n");
 	reverse_rotate(b);
 	return ;
 }
 
-void	rrr(t_list **a, t_list **b)
+void	rrr(t_list **a, t_list **b, int print)
 {
-	ft_printf("rrr\n");
+	if (print)
+		ft_printf("rrr\n");
 	reverse_rotate(a);
 	reverse_rotate(b);
 	return ;

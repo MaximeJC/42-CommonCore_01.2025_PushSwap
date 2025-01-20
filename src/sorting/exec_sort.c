@@ -6,7 +6,7 @@
 /*   By: mgouraud <mgouraud@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/14 14:17:23 by mgouraud          #+#    #+#             */
-/*   Updated: 2025/01/14 15:54:28 by mgouraud         ###   ########.fr       */
+/*   Updated: 2025/01/20 15:01:49 by mgouraud         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -38,25 +38,25 @@ void	exec_sort(t_list **a, t_list **b, t_element element)
 		exec_rarrb(a, b, element);
 	else
 		exec_rrarb(a, b, element);
-	pb(a, b);
+	pb(a, b, 1);
 }
 
 static void	exec_rr(t_list **a, t_list **b, t_element element)
 {
 	while (element.rot_a > 0 && element.rot_b > 0)
 	{
-		rr(a, b);
+		rr(a, b, 1);
 		element.rot_a--;
 		element.rot_b--;
 	}
 	while (element.rot_a > 0)
 	{
-		ra(a);
+		ra(a, 1);
 		element.rot_a--;
 	}
 	while (element.rot_b > 0)
 	{
-		rb(b);
+		rb(b, 1);
 		element.rot_b--;
 	}
 }
@@ -65,18 +65,18 @@ static void	exec_rrr(t_list **a, t_list **b, t_element element)
 {
 	while (element.rrot_a > 0 && element.rrot_b > 0)
 	{
-		rrr(a, b);
+		rrr(a, b, 1);
 		element.rrot_a--;
 		element.rrot_b--;
 	}
 	while (element.rrot_a > 0)
 	{
-		rra(a);
+		rra(a, 1);
 		element.rrot_a--;
 	}
 	while (element.rrot_b > 0)
 	{
-		rrb(b);
+		rrb(b, 1);
 		element.rrot_b--;
 	}
 }
@@ -85,12 +85,12 @@ static void	exec_rarrb(t_list **a, t_list **b, t_element element)
 {
 	while (element.rot_a > 0)
 	{
-		ra(a);
+		ra(a, 1);
 		element.rot_a--;
 	}
 	while (element.rrot_b > 0)
 	{
-		rrb(b);
+		rrb(b, 1);
 		element.rrot_b--;
 	}
 }
@@ -99,12 +99,12 @@ static void	exec_rrarb(t_list **a, t_list **b, t_element element)
 {
 	while (element.rrot_a > 0)
 	{
-		rra(a);
+		rra(a, 1);
 		element.rrot_a--;
 	}
 	while (element.rot_b > 0)
 	{
-		rb(b);
+		rb(b, 1);
 		element.rot_b--;
 	}
 }

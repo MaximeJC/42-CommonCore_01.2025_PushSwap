@@ -6,7 +6,7 @@
 /*   By: mgouraud <mgouraud@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/13 15:24:49 by mgouraud          #+#    #+#             */
-/*   Updated: 2025/01/14 15:58:38 by mgouraud         ###   ########.fr       */
+/*   Updated: 2025/01/20 15:01:12 by mgouraud         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,12 +19,12 @@ void	sort(t_list **a, t_list **b)
 {
 	t_element	el;
 
-	pb(a, b);
+	pb(a, b, 1);
 	if (ft_lstsize(*a) != 3)
 	{
-		pb(a, b);
+		pb(a, b, 1);
 		if ((*b)->content < (*b)->next->content)
-			sb(b);
+			sb(b, 1);
 	}
 	while (ft_lstsize(*a) != 3)
 	{
@@ -41,19 +41,19 @@ static void	push_back(t_list **a, t_list **b)
 
 	i = 3;
 	while ((*b)->content < ft_lstlast(*b)->content)
-		rrb(b);
+		rrb(b, 1);
 	while (ft_lstsize(*b) != 0)
 	{
 		if ((*b)->content > ft_lstlast(*a)->content || i == 0)
-			pa(a, b);
+			pa(a, b, 1);
 		else
 		{
-			rra(a);
+			rra(a, 1);
 			i--;
 		}
 	}
 	while ((*a)->content > ft_lstlast(*a)->content)
-		rra(a);
+		rra(a, 1);
 }
 
 static t_element	get_cheaper(t_list *a, t_list *b)

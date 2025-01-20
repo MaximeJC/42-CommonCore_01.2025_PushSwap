@@ -6,7 +6,7 @@
 /*   By: mgouraud <mgouraud@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/12/30 17:44:42 by mgouraud          #+#    #+#             */
-/*   Updated: 2025/01/08 16:16:50 by mgouraud         ###   ########.fr       */
+/*   Updated: 2025/01/20 14:58:59 by mgouraud         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,16 +26,18 @@ void	push(t_list **from, t_list **to)
 	return ;
 }
 
-void	pa(t_list **a, t_list **b)
+void	pa(t_list **a, t_list **b, int print)
 {
-	ft_printf("pa\n");
+	if (print)
+		ft_printf("pa\n");
 	push(b, a);
 	return ;
 }
 
-void	pb(t_list **a, t_list **b)
+void	pb(t_list **a, t_list **b, int print)
 {
-	ft_printf("pb\n");
+	if (print)
+		ft_printf("pb\n");
 	push(a, b);
 	return ;
 }

@@ -6,7 +6,7 @@
 /*   By: mgouraud <mgouraud@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/12/30 17:44:46 by mgouraud          #+#    #+#             */
-/*   Updated: 2025/01/08 16:06:18 by mgouraud         ###   ########.fr       */
+/*   Updated: 2025/01/20 14:59:47 by mgouraud         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,23 +26,26 @@ void	swap(t_list **lst)
 	return ;
 }
 
-void	sa(t_list **a)
+void	sa(t_list **a, int print)
 {
-	ft_printf("sa\n");
+	if (print)
+		ft_printf("sa\n");
 	swap(a);
 	return ;
 }
 
-void	sb(t_list **b)
+void	sb(t_list **b, int print)
 {
-	ft_printf("sb\n");
+	if (print)
+		ft_printf("sb\n");
 	swap(b);
 	return ;
 }
 
-void	ss(t_list **a, t_list **b)
+void	ss(t_list **a, t_list **b, int print)
 {
-	ft_printf("ss\n");
+	if (print)
+		ft_printf("ss\n");
 	swap(a);
 	swap(b);
 	return ;

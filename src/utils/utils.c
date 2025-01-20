@@ -6,7 +6,7 @@
 /*   By: mgouraud <mgouraud@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/13 13:44:21 by mgouraud          #+#    #+#             */
-/*   Updated: 2025/01/14 17:03:00 by mgouraud         ###   ########.fr       */
+/*   Updated: 2025/01/20 15:02:44 by mgouraud         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -53,7 +53,7 @@ void	sort_two(t_list **a)
 	if (is_sorted(*a))
 		return ;
 	else
-		sa(a);
+		sa(a, 1);
 	return ;
 }
 
@@ -64,18 +64,18 @@ void	sort_three(t_list **a)
 	else if (is_rsorted(*a) || ((*a)->content < (*a)->next->content
 			&& (*a)->content < (*a)->next->next->content
 			&& (*a)->next->content > (*a)->next->next->content))
-		sa(a);
+		sa(a, 1);
 	if ((*a)->content < (*a)->next->content
 		&& (*a)->content > (*a)->next->next->content
 		&& (*a)->next->content > (*a)->next->next->content)
-		rra(a);
+		rra(a, 1);
 	else if ((*a)->content > (*a)->next->content
 		&& (*a)->content < (*a)->next->next->content
 		&& (*a)->next->content < (*a)->next->next->content)
-		sa(a);
+		sa(a, 1);
 	else if ((*a)->content > (*a)->next->content
 		&& (*a)->content > (*a)->next->next->content
 		&& (*a)->next->content < (*a)->next->next->content)
-		ra(a);
+		ra(a, 1);
 	return ;
 }
