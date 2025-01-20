@@ -3,3 +3,4 @@ obj/
 *.o
 *.out
 push_swap
+checker
