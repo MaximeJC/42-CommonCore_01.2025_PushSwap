@@ -6,7 +6,7 @@
 #    By: mgouraud <mgouraud@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2024/12/30 17:27:03 by mgouraud          #+#    #+#              #
-#    Updated: 2025/01/14 18:18:56 by mgouraud         ###   ########.fr        #
+#    Updated: 2025/01/20 15:14:22 by mgouraud         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -85,7 +85,7 @@ $(OBJ_DIR)%.o : $(SRC_DIR)%.c | obj_mkdir
 
 all: $(NAME)
 
-bonus: $(CHK_OBJS)
+$(CHKER): $(CHK_OBJS)
 	@make -C $(LIBFT_DIR)
 	@cp $(LIBFT_DIR)/libft.a .
 	@mv libft.a $(CHK_OBJ_DIR)$(CHKER_AR_NAME)
@@ -97,6 +97,8 @@ bonus: $(CHK_OBJS)
 $(CHK_OBJ_DIR)%.o : $(CHK_SRC_DIR)%.c | obj_mkdir
 	@echo "Compiling: $<"
 	@$(CC) $(CFLAGS) $(INCLUDE) -c $< -o $@
+
+bonus: $(CHKER)
 
 clean:
 	@make clean -C $(LIBFT_DIR)
