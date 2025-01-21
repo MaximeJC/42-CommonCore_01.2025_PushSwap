@@ -6,7 +6,7 @@
 /*   By: mgouraud <mgouraud@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/13 15:24:49 by mgouraud          #+#    #+#             */
-/*   Updated: 2025/01/21 15:13:31 by mgouraud         ###   ########.fr       */
+/*   Updated: 2025/01/21 15:42:21 by mgouraud         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -79,11 +79,15 @@ static t_element	get_cheaper(t_list *a, t_list *b)
 		test_el.content = el->content;
 		test_el.rot_a = getnbrot_a(a, test_el.content);
 		test_el.rrot_a = ft_lstsize(a) - test_el.rot_a;
-		test_el.rot_b = getnbrot_b(b, test_el.content, 0, INT_MIN);
-		test_el.rrot_b = ft_lstsize(b) - test_el.rot_b;
-		test_el.cost = getcost(test_el);
-		if (test_el.cost < cheap_el.cost)
-			cheap_el = test_el;
+		if (test_el.rot_a + 1 < cheap_el.cost
+			|| test_el.rrot_a + 1 < cheap_el.cost)
+		{
+			test_el.rot_b = getnbrot_b(b, test_el.content, 0, INT_MIN);
+			test_el.rrot_b = ft_lstsize(b) - test_el.rot_b;
+			test_el.cost = getcost(test_el);
+			if (test_el.cost < cheap_el.cost)
+				cheap_el = test_el;
+		}
 		el = el->next;
 	}
 	return (cheap_el);
