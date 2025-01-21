@@ -6,7 +6,7 @@
 /*   By: mgouraud <mgouraud@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/13 15:24:49 by mgouraud          #+#    #+#             */
-/*   Updated: 2025/01/20 15:01:12 by mgouraud         ###   ########.fr       */
+/*   Updated: 2025/01/21 15:13:31 by mgouraud         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,6 +14,7 @@
 
 static t_element	get_cheaper(t_list *a, t_list *b);
 static void			push_back(t_list **a, t_list **b);
+static int			getlst_maxpos(t_list *lst);
 
 void	sort(t_list **a, t_list **b)
 {
@@ -40,8 +41,16 @@ static void	push_back(t_list **a, t_list **b)
 	int	i;
 
 	i = 3;
-	while ((*b)->content < ft_lstlast(*b)->content)
-		rrb(b, 1);
+	if (getlst_maxpos(*b) <= ft_lstsize(*b) / 2)
+	{
+		while ((*b)->content < ft_lstlast(*b)->content)
+			rb(b, 1);
+	}
+	else
+	{
+		while ((*b)->content < ft_lstlast(*b)->content)
+			rrb(b, 1);
+	}
 	while (ft_lstsize(*b) != 0)
 	{
 		if ((*b)->content > ft_lstlast(*a)->content || i == 0)
@@ -78,4 +87,31 @@ static t_element	get_cheaper(t_list *a, t_list *b)
 		el = el->next;
 	}
 	return (cheap_el);
+}
+
+static int	getlst_maxpos(t_list *lst)
+{
+	int		i;
+	int		count;
+	int		b_max;
+	t_list	*el;
+
+	i = 0;
+	count = 1;
+	b_max = INT_MIN;
+	el = lst;
+	while (i != ft_lstsize(lst))
+	{
+		if (el->content > b_max)
+			b_max = el->content;
+		el = el->next;
+		i++;
+	}
+	el = lst;
+	while (el != NULL && el->content != b_max)
+	{
+		count++;
+		el = el->next;
+	}
+	return (count);
 }
