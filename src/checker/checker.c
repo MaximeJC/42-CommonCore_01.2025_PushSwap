@@ -6,7 +6,7 @@
 /*   By: mgouraud <mgouraud@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/14 16:46:10 by mgouraud          #+#    #+#             */
-/*   Updated: 2025/01/20 15:08:06 by mgouraud         ###   ########.fr       */
+/*   Updated: 2025/01/21 16:08:12 by mgouraud         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -56,12 +56,14 @@ static void	readinstructions(t_list **a, t_list **b)
 			if (instruction != NULL)
 			{
 				ft_putstr_fd("Error\n", 2);
+				free(instruction);
 				ft_lstclear(a);
 				ft_lstclear(b);
 				exit(EXIT_FAILURE);
 			}
 			break ;
 		}
+		free(instruction);
 	}
 }
 
