@@ -6,7 +6,7 @@
 /*   By: mgouraud <mgouraud@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/07 12:43:00 by mgouraud          #+#    #+#             */
-/*   Updated: 2025/01/08 15:10:44 by mgouraud         ###   ########.fr       */
+/*   Updated: 2025/01/24 16:20:34 by mgouraud         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -53,6 +53,8 @@ void	argstostack(char **args, t_list **a)
 	i = 0;
 	error = 0;
 	el = NULL;
+	if (args[i] == NULL)
+		error = 1;
 	while (args[i] != NULL && error == 0)
 	{
 		error = argstostack_sub(args, a, i, &el);
@@ -104,8 +106,12 @@ static int	check_str(char	*str)
 	int	i;
 
 	i = 0;
+	if (str[i] == '\0')
+		return (1);
 	while (ft_iswhitespace(str[i]))
 		i++;
+	if (str[i] == '\0')
+		return (1);
 	if (str[i] == '+' || str[i] == '-')
 		i++;
 	while (ft_isdigit(str[i]))
