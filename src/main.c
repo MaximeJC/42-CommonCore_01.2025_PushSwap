@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   main.c                                             :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: mgouraud <mgouraud@student.42.fr>          +#+  +:+       +#+        */
+/*   By: mgouraud <mgouraud@student.42lehavre.fr    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/12/30 17:29:48 by mgouraud          #+#    #+#             */
-/*   Updated: 2025/01/14 15:49:28 by mgouraud         ###   ########.fr       */
+/*   Updated: 2025/05/24 01:03:20 by mgouraud         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -34,7 +34,7 @@ int	main(int argc, char *argv[])
 		sort_three(&a);
 	else if (is_sorted(a) == 0)
 		sort(&a, &b);
-	ft_lstclear(&a);
-	ft_lstclear(&b);
+	ft_lstclear(&a, free);
+	ft_lstclear(&b, free);
 	return (0);
 }

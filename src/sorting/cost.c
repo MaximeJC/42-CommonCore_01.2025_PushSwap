@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   cost.c                                             :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: mgouraud <mgouraud@student.42.fr>          +#+  +:+       +#+        */
+/*   By: mgouraud <mgouraud@student.42lehavre.fr    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/14 11:50:59 by mgouraud          #+#    #+#             */
-/*   Updated: 2025/01/14 15:57:53 by mgouraud         ###   ########.fr       */
+/*   Updated: 2025/05/24 01:07:10 by mgouraud         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,7 +22,7 @@ int	getnbrot_a(t_list *a, int content)
 
 	el = a;
 	cost = 0;
-	while (el->content != content)
+	while (*(int *)el->content != content)
 	{
 		el = el->next;
 		cost++;
@@ -40,17 +40,17 @@ int	getnbrot_b(t_list *b, int content, int cost, int b_max)
 		b_content = b_max;
 	else
 	{
-		while (el->content > content)
+		while (*(int *)el->content > content)
 		{
 			if (el->next == NULL)
 				el = b;
 			else
 				el = el->next;
 		}
-		b_content = el->content;
+		b_content = *(int *)el->content;
 	}
 	el = b;
-	while (el->content != b_content)
+	while (*(int *)el->content != b_content)
 	{
 		el = el->next;
 		cost++;
@@ -92,8 +92,8 @@ static int	getlst_min(t_list *lst)
 	el = lst;
 	while (i != ft_lstsize(lst))
 	{
-		if (el->content < min)
-			min = el->content;
+		if (*(int *)el->content < min)
+			min = *(int *)el->content;
 		el = el->next;
 		i++;
 	}
@@ -110,9 +110,9 @@ static t_list	*getlst_max(t_list *lst, int *b_max)
 	el = lst;
 	while (i != ft_lstsize(lst))
 	{
-		if (el->content > *b_max)
+		if (*(int *)el->content > *b_max)
 		{
-			*b_max = el->content;
+			*b_max = *(int *)el->content;
 			el_max = el;
 		}
 		el = el->next;

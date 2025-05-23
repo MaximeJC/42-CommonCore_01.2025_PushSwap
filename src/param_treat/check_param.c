@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   check_param.c                                      :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: mgouraud <mgouraud@student.42.fr>          +#+  +:+       +#+        */
+/*   By: mgouraud <mgouraud@student.42lehavre.fr    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/07 12:43:00 by mgouraud          #+#    #+#             */
-/*   Updated: 2025/01/24 16:20:34 by mgouraud         ###   ########.fr       */
+/*   Updated: 2025/05/24 01:06:44 by mgouraud         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -67,7 +67,7 @@ void	argstostack(char **args, t_list **a)
 		error = check_double(*a);
 	if (error == 1)
 	{
-		ft_lstclear(a);
+		ft_lstclear(a, free);
 		ft_putendl_fd("Error", 2);
 		exit(EXIT_FAILURE);
 	}
@@ -75,24 +75,25 @@ void	argstostack(char **args, t_list **a)
 
 static int	argstostack_sub(char **args, t_list **a, int i, t_list **el)
 {
-	long	nbr;
+	int		*nbr;
 	t_list	*new_el;
 
-	nbr = 0;
-	new_el = NULL;
-	nbr = ft_atol(args[i]);
-	if (check_str(args[i]) == 1 || nbr < INT_MIN || nbr > INT_MAX)
+	nbr = ft_calloc(1, sizeof(int));
+	if (nbr == NULL || check_str(args[i]) == 1 || ft_atol(args[i]) < INT_MIN
+		|| ft_atol(args[i]) > INT_MAX)
 		return (1);
+	new_el = NULL;
+	*nbr = ft_atoi(args[i]);
 	if (i == 0)
 	{
-		*a = ft_lstnew((int)nbr);
+		*a = ft_lstnew(nbr);
 		if (*a == NULL)
 			return (1);
 		*el = *a;
 	}
 	else
 	{
-		new_el = ft_lstnew((int)nbr);
+		new_el = ft_lstnew(nbr);
 		if (new_el == NULL)
 			return (1);
 		(*el)->next = new_el;

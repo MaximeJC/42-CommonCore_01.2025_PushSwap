@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   sort.c                                             :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: mgouraud <mgouraud@student.42.fr>          +#+  +:+       +#+        */
+/*   By: mgouraud <mgouraud@student.42lehavre.fr    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/13 15:24:49 by mgouraud          #+#    #+#             */
-/*   Updated: 2025/01/21 15:42:21 by mgouraud         ###   ########.fr       */
+/*   Updated: 2025/05/24 01:02:40 by mgouraud         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,7 +24,7 @@ void	sort(t_list **a, t_list **b)
 	if (ft_lstsize(*a) != 3)
 	{
 		pb(a, b, 1);
-		if ((*b)->content < (*b)->next->content)
+		if (*(int *)(*b)->content < *(int *)(*b)->next->content)
 			sb(b, 1);
 	}
 	while (ft_lstsize(*a) != 3)
@@ -43,17 +43,17 @@ static void	push_back(t_list **a, t_list **b)
 	i = 3;
 	if (getlst_maxpos(*b) <= ft_lstsize(*b) / 2)
 	{
-		while ((*b)->content < ft_lstlast(*b)->content)
+		while (*(int *)(*b)->content < *(int *)ft_lstlast(*b)->content)
 			rb(b, 1);
 	}
 	else
 	{
-		while ((*b)->content < ft_lstlast(*b)->content)
+		while (*(int *)(*b)->content < *(int *)ft_lstlast(*b)->content)
 			rrb(b, 1);
 	}
 	while (ft_lstsize(*b) != 0)
 	{
-		if ((*b)->content > ft_lstlast(*a)->content || i == 0)
+		if (*(int *)(*b)->content > *(int *)ft_lstlast(*a)->content || i == 0)
 			pa(a, b, 1);
 		else
 		{
@@ -61,7 +61,7 @@ static void	push_back(t_list **a, t_list **b)
 			i--;
 		}
 	}
-	while ((*a)->content > ft_lstlast(*a)->content)
+	while (*(int *)(*a)->content > *(int *)ft_lstlast(*a)->content)
 		rra(a, 1);
 }
 
@@ -73,10 +73,10 @@ static t_element	get_cheaper(t_list *a, t_list *b)
 
 	cheap_el.cost = INT_MAX;
 	el = a;
-	test_el.content = el->content;
+	test_el.content = *(int *)el->content;
 	while (el != NULL)
 	{
-		test_el.content = el->content;
+		test_el.content = *(int *)el->content;
 		test_el.rot_a = getnbrot_a(a, test_el.content);
 		test_el.rrot_a = ft_lstsize(a) - test_el.rot_a;
 		if (test_el.rot_a + 1 < cheap_el.cost
@@ -106,13 +106,13 @@ static int	getlst_maxpos(t_list *lst)
 	el = lst;
 	while (i != ft_lstsize(lst))
 	{
-		if (el->content > b_max)
-			b_max = el->content;
+		if (*(int *)el->content > b_max)
+			b_max = *(int *)el->content;
 		el = el->next;
 		i++;
 	}
 	el = lst;
-	while (el != NULL && el->content != b_max)
+	while (el != NULL && *(int *)el->content != b_max)
 	{
 		count++;
 		el = el->next;

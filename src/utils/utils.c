@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   utils.c                                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: mgouraud <mgouraud@student.42.fr>          +#+  +:+       +#+        */
+/*   By: mgouraud <mgouraud@student.42lehavre.fr    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/13 13:44:21 by mgouraud          #+#    #+#             */
-/*   Updated: 2025/01/20 15:02:44 by mgouraud         ###   ########.fr       */
+/*   Updated: 2025/05/24 01:01:54 by mgouraud         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,12 +18,12 @@ int	is_sorted(t_list *lst)
 	t_list	*el;
 
 	el = lst;
-	highest = el->content;
+	highest = *(int *)el->content;
 	while (el->next != NULL)
 	{
 		el = el->next;
-		if (el->content > highest)
-			highest = el->content;
+		if (*(int *)el->content > highest)
+			highest = *(int *)el->content;
 		else
 			return (0);
 	}
@@ -36,12 +36,12 @@ int	is_rsorted(t_list *lst)
 	t_list	*el;
 
 	el = lst;
-	lowest = el->content;
+	lowest = *(int *)el->content;
 	while (el->next != NULL)
 	{
 		el = el->next;
-		if (el->content < lowest)
-			lowest = el->content;
+		if (*(int *)el->content < lowest)
+			lowest = *(int *)el->content;
 		else
 			return (0);
 	}
@@ -61,21 +61,22 @@ void	sort_three(t_list **a)
 {
 	if (is_sorted(*a))
 		return ;
-	else if (is_rsorted(*a) || ((*a)->content < (*a)->next->content
-			&& (*a)->content < (*a)->next->next->content
-			&& (*a)->next->content > (*a)->next->next->content))
+	else if (is_rsorted(*a)
+		|| (*(int *)(*a)->content < *(int *)(*a)->next->content
+			&& *(int *)(*a)->content < *(int *)(*a)->next->next->content
+			&& *(int *)(*a)->next->content > *(int *)(*a)->next->next->content))
 		sa(a, 1);
-	if ((*a)->content < (*a)->next->content
-		&& (*a)->content > (*a)->next->next->content
-		&& (*a)->next->content > (*a)->next->next->content)
+	if (*(int *)(*a)->content < *(int *)(*a)->next->content
+		&& *(int *)(*a)->content > *(int *)(*a)->next->next->content
+		&& *(int *)(*a)->next->content > *(int *)(*a)->next->next->content)
 		rra(a, 1);
-	else if ((*a)->content > (*a)->next->content
-		&& (*a)->content < (*a)->next->next->content
-		&& (*a)->next->content < (*a)->next->next->content)
+	else if (*(int *)(*a)->content > *(int *)(*a)->next->content
+		&& *(int *)(*a)->content < *(int *)(*a)->next->next->content
+		&& *(int *)(*a)->next->content < *(int *)(*a)->next->next->content)
 		sa(a, 1);
-	else if ((*a)->content > (*a)->next->content
-		&& (*a)->content > (*a)->next->next->content
-		&& (*a)->next->content < (*a)->next->next->content)
+	else if (*(int *)(*a)->content > *(int *)(*a)->next->content
+		&& *(int *)(*a)->content > *(int *)(*a)->next->next->content
+		&& *(int *)(*a)->next->content < *(int *)(*a)->next->next->content)
 		ra(a, 1);
 	return ;
 }

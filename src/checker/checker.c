@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   checker.c                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: mgouraud <mgouraud@student.42.fr>          +#+  +:+       +#+        */
+/*   By: mgouraud <mgouraud@student.42lehavre.fr    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/14 16:46:10 by mgouraud          #+#    #+#             */
-/*   Updated: 2025/01/24 16:25:19 by mgouraud         ###   ########.fr       */
+/*   Updated: 2025/05/24 01:03:58 by mgouraud         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -36,8 +36,8 @@ int	main(int argc, char *argv[])
 		ft_printf("OK\n");
 	else
 		ft_printf("KO\n");
-	ft_lstclear(&a);
-	ft_lstclear(&b);
+	ft_lstclear(&a, free);
+	ft_lstclear(&b, free);
 	return (0);
 }
 
@@ -57,8 +57,8 @@ static void	readinstructions(t_list **a, t_list **b)
 			{
 				ft_putstr_fd("Error\n", 2);
 				free(instruction);
-				ft_lstclear(a);
-				ft_lstclear(b);
+				ft_lstclear(a, free);
+				ft_lstclear(b, free);
 				exit(EXIT_FAILURE);
 			}
 			break ;
