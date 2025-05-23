@@ -11,5 +11,5 @@ Pour information, certains exercices pourraient être incorrects. Quelques bugs 
 
 The goal of this 42 common core project is to have a first look into the fabulous world of sorting algorithms. The objective here is not about time, but it's about how many operations you need to sort the given numbers using two stacks.
 
-_Common Core Rank 02 - Completed in January 2025_
+_Common Core Rank 02 - Completed in January 2025_  
 _Code by me_
