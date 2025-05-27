@@ -18,12 +18,16 @@ In this project, I used the Turk sort algorithm. First, push every number except
 ## Usage
 
 Without checker:
-    ```bash
-    ./push_swap [numbers]
-    ```
+
+```bash
+./push_swap [numbers]
+```
+
 With checker:
-    ```bash
-    ./push_swap [numbers] | ./checker [same numbers]
-    ```
+
+```bash
+./push_swap [numbers] | ./checker [same numbers]
+```
+
 _Common Core Rank 02 - Completed in January 2025_  
 _Code by me_
