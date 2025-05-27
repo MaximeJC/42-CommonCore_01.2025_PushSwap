@@ -17,13 +17,13 @@ In this project, I used the Turk sort algorithm. First, push every number except
 
 ## Usage
 
-Without checker:  
+Without checker:
 
     ```bash
     ./push_swap [numbers]
     ```
 
-With checker:  
+With checker:
 
     ```bash
     ./push_swap [numbers] | ./checker [same numbers]
